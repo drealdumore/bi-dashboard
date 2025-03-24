@@ -44,8 +44,9 @@ export function PieChart({
   innerRadius = 60,
   outerRadius = 90,
 }: PieChartProps) {
+  
   // Calculate total value for percentage
-  const total = data.reduce((sum, entry) => sum + entry[dataKey] as number, 0);
+  const total = data.reduce((sum, entry) => sum + (typeof entry[dataKey] === "number" ? entry[dataKey] : 0), 0);
 
   return (
     <Card className={className}>
