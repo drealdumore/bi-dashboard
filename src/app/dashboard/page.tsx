@@ -213,7 +213,10 @@ export default function DashboardPage() {
       <PieChart
         title="Sales by Category"
         description="Distribution of sales across product categories"
-        data={categoryData}
+        data={categoryData.map((item) => ({
+          name: item.name as string,
+          value: item.value as number,
+        }))}
         nameKey="name"
         dataKey="value"
         height={350}
